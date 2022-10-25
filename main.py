@@ -77,6 +77,8 @@ def preload():
 
 
 def main():
+    global w, h, FONT_SIZE, font
+    preload()
     ITERATIONS = -1
     while ITERATIONS == -1:
         im = Image.new('RGB', (w, h))
@@ -94,7 +96,7 @@ def main():
             im.save(path)
             try:
                 ### COMMENT THIS TO MAKE SCRIPT CHANGE YOUR WALLPAPERS
-                raise Exception
+                # raise Exception
                 
                 from appscript import app, mactypes
                 app('Finder').desktop_picture.set(mactypes.File(path))
@@ -103,7 +105,7 @@ def main():
                 pass
         sleep(5)
         
-        ### UNCOMMENT TO DO ONLY ONE TIME
+        ### UNCOMMENT TO DO GENERATION ONLY ONE TIME
 
         # ITERATIONS += 1
 
